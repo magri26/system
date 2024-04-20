@@ -17,10 +17,10 @@ class TicketController extends Controller
         //$user->save();
 
         $menu = array(
-            array('nombre'=>'Home','activeSubmenu'=>0, 'submenu'=>[]),
-            array('nombre'=>'Company','activeSubmenu'=>1, 'submenu'=>[array('nombre'=>'sub 1','activeSubmenu'=>'0', 'submenu'=>[]),array('nombre'=>'sub 2','activeSubmenu'=>'0', 'submenu'=>[])]),
-            array('nombre'=>'Team','activeSubmenu'=>0, 'submenu'=>[]),
-            array('nombre'=>'Contact','activeSubmenu'=>0, 'submenu'=>[]),
+            array('nombre'=>'Home','activeSubmenu'=>0, 'url'=>'', 'submenu'=>[]),
+            array('nombre'=>'Company','activeSubmenu'=>1, 'url'=>'', 'submenu'=>[array('nombre'=>'sub 1','activeSubmenu'=>'0', 'submenu'=>[]),array('nombre'=>'sub 2','activeSubmenu'=>'0', 'submenu'=>[])]),
+            array('nombre'=>'Team','activeSubmenu'=>0, 'url'=>'', 'submenu'=>[]),
+            array('nombre'=>'Contact','activeSubmenu'=>0, 'url'=>'', 'submenu'=>[]),
         );
 
         //$ticket = new Ticket();
@@ -37,10 +37,10 @@ class TicketController extends Controller
     {
         $user = auth()->user();
         $menu = array(
-            array('nombre'=>'Home','activeSubmenu'=>0, 'submenu'=>[]),
-            array('nombre'=>'Otros','activeSubmenu'=>1, 'submenu'=>[array('nombre'=>'sub 1','activeSubmenu'=>'0', 'submenu'=>[]),array('nombre'=>'sub 2','activeSubmenu'=>'0', 'submenu'=>[])]),
-            array('nombre'=>'Team','activeSubmenu'=>0, 'submenu'=>[]),
-            array('nombre'=>'Contact','activeSubmenu'=>0, 'submenu'=>[]),
+            array('nombre'=>'Home','activeSubmenu'=>0, 'url'=>'', 'submenu'=>[]),
+            array('nombre'=>'Company','activeSubmenu'=>1, 'url'=>'', 'submenu'=>[array('nombre'=>'sub 1','activeSubmenu'=>'0', 'submenu'=>[]),array('nombre'=>'sub 2','activeSubmenu'=>'0', 'submenu'=>[])]),
+            array('nombre'=>'Team','activeSubmenu'=>0, 'url'=>'', 'submenu'=>[]),
+            array('nombre'=>'Contact','activeSubmenu'=>0, 'url'=>'', 'submenu'=>[]),
         );
         return view('modulos.create',compact('menu','user'));
     }
@@ -48,10 +48,10 @@ class TicketController extends Controller
     public function show($ticket)
     {
         $menu = array(
-            array('nombre'=>'Home','activeSubmenu'=>0, 'submenu'=>[]),
-            array('nombre'=>'Company','activeSubmenu'=>1, 'submenu'=>[array('nombre'=>'sub 1','activeSubmenu'=>'0', 'submenu'=>[]),array('nombre'=>'sub 2','activeSubmenu'=>'0', 'submenu'=>[])]),
-            array('nombre'=>'Team','activeSubmenu'=>0, 'submenu'=>[]),
-            array('nombre'=>'Contact','activeSubmenu'=>0, 'submenu'=>[]),
+            array('nombre'=>'Home','activeSubmenu'=>0, 'url'=>'', 'submenu'=>[]),
+            array('nombre'=>'Company','activeSubmenu'=>1, 'url'=>'', 'submenu'=>[array('nombre'=>'sub 1','activeSubmenu'=>'0', 'submenu'=>[]),array('nombre'=>'sub 2','activeSubmenu'=>'0', 'submenu'=>[])]),
+            array('nombre'=>'Team','activeSubmenu'=>0, 'url'=>'', 'submenu'=>[]),
+            array('nombre'=>'Contact','activeSubmenu'=>0, 'url'=>'', 'submenu'=>[]),
         );
         return view('modulos.show', compact('ticket','menu'));
     }

@@ -1,15 +1,18 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\TicketController;
 
-Route::get('/', [HomeController::class, 'index']);
-
+//Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', [LoginController::class, 'index'])->name('home');
+Route::post('/custom-login', [LoginController::class, 'login'])->name('login');
+Route::get('/home', [LoginController::class, 'userLogged'])->name('userLogged');
 /* MODULO TICKETS */
-Route::get('/tickets', [TicketController::class, 'index']);
-Route::get('/tickets/create', [TicketController::class, 'create']);
-Route::get('/tickets/{ticket}', [TicketController::class, 'show']);
+Route::get('/tickets', [TicketController::class, 'index'])->middleware('auth');
+Route::get('/tickets/create', [TicketController::class, 'create'])->middleware('auth');
+Route::get('/tickets/{ticket}', [TicketController::class, 'show'])->middleware('auth');
 
 /*Route::get('/', function () {
     return view('welcome');
