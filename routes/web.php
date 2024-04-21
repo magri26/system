@@ -9,6 +9,7 @@ use App\Http\Controllers\TicketController;
 Route::get('/', [LoginController::class, 'index'])->name('home');
 Route::post('/custom-login', [LoginController::class, 'login'])->name('login');
 Route::get('/home', [LoginController::class, 'userLogged'])->name('userLogged');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 /* MODULO TICKETS */
 Route::get('/tickets', [TicketController::class, 'index'])->middleware('auth');
 Route::get('/tickets/create', [TicketController::class, 'create'])->middleware('auth');

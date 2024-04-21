@@ -1,3 +1,3 @@
-<x-nav :menu="$menu">
+<x-nav :menu="$menu" :user="$user">
     
 </x-nav>

@@ -11,14 +11,15 @@ class HomeController extends Controller
 {
     public function index()
     {
-        /*$user = new User;
-        $user->name = "Michael";
-        $user->email = "maikelpezoa@gmail.com";
-        $user->password = "12345678";
-        $user->save();*/
-
         if (Auth::check()) {
-	        return view('modulos.home');
+            $user = Auth::user();
+            $menu = array(
+                array('nombre'=>'Dashboard','activeSubmenu'=>0, 'url'=>'', 'icon'=>'fa-tachometer-alt', 'submenu'=>[]),
+                array('nombre'=>'Tickets','activeSubmenu'=>1, 'url'=>'', 'icon'=>'fa-tachometer-alt', 'submenu'=>[array('nombre'=>'sub 1','activeSubmenu'=>'0', 'submenu'=>[]),array('nombre'=>'sub 2','activeSubmenu'=>'0', 'submenu'=>[])]),
+                array('nombre'=>'Usuarios','activeSubmenu'=>0, 'url'=>'', 'icon'=>'fa-tachometer-alt', 'submenu'=>[]),
+                array('nombre'=>'Mantenedores','activeSubmenu'=>0, 'url'=>'', 'icon'=>'fa-tachometer-alt', 'submenu'=>[]),
+            );
+	        return view('modulos.home', compact('menu','user'));
 	    }
 
         return view('auth.login');
